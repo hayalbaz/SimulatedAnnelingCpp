@@ -15,10 +15,37 @@
 #include <algorithm>
 
 //Algorithm parameters
+/**
+ * tk is the starting temperature for simulated annealing, the larger it is the more time the algorithm will have a 
+ * chance to pick solutions that are worse than the current solution.
+ */
 double tk = 1000;
-const int Mk = 10;
+/**
+ * Mk is how many iterations we spend in a single temperature iteration. If this is large then the algorithm will have
+ * more chances to pick solutions that are worse than the current solution. 
+ */ 
+const int Mk = 5;
+/**
+ * Cooling rate determines how fast the temperature tk will descent into 0 degrees. If it is too fast the algorithm might
+ * get stuck at a local optimum.
+ */ 
 const double coolingRate = 0.95;
-const double minimumTemperature = 0.3;
+/**
+ * Minimum Temperature is the minimum the temperature tk will be throughtout the algortihms run. If it is too large then 
+ * the algorithm will keep picking solutions that are worse than the current solution even if it shouldn't. If it is too 
+ * small then the algorithm might get stuck at a local optimum since this gives is a  non-zero chance to get out of local 
+ * optimums at the later stages of the algorithm.
+ * 
+ * I have tuned this variable such that at each iteration a worse solution with single difference in score between current
+ * solution and neighboring solution does have around %2 chance to be picked. It is calculated by plugging numbers in the
+ * following formula:
+ * 
+ *                                        exp(-1*delta/minimumTemperature) * 100 where delta=1
+ * 
+ * This combined with a sufficently large Mk ensures that the algortihm will try different combinations if it spends too 
+ * much time at a local optimum but will not go too far away from the optimum solution area.
+ */ 
+const double minimumTemperature = 0.25;
 
 /**
  * This class represents a PossibleSolution in solution space.
