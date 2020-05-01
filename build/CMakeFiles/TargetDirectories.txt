@@ -1,0 +1,3 @@
+C:/Users/the_s/projects/ai-hw/hw3/build/CMakeFiles/homework.dir
+C:/Users/the_s/projects/ai-hw/hw3/build/CMakeFiles/edit_cache.dir
+C:/Users/the_s/projects/ai-hw/hw3/build/CMakeFiles/rebuild_cache.dir

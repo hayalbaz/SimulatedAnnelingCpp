@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/the_s/projects/ai-hw/hw3/main.cpp
+cstdlib
+-
+ctime
+-
+math.h
+-
+array
+-
+iostream
+-
+unordered_map
+-
+algorithm
+-
+
